@@ -23,21 +23,23 @@ function onClickImg(evt){
     if(!evt.target.classList.contains("gallery__image")){
         return;
     }
-
-
-    // const source = evt.target.dataset.source
-    // const gallerySource = galleryItems.find(({original}) => source === original)
-    // console.log(gallerySource)
-
    
-    const instance = basicLightbox.create(`
-    <img src="${evt.target.dataset.source}" width="800" height="600">
-`)
+   const Img = evt.target.dataset.source;
+   openModal(Img)
 
-instance.show()
 }
 
+function openModal(image){
+let instance = null
+const imageEl = `<img src="${image}">`;
+instance = basicLightbox.create(imageEl, {
+    onShow:() => document.addEventListener("keydown", onKeyDownModal), 
+    onСlose:() => document.removeEventListener("keydown", onKeyDownModal)
+})
+instance.show();
+}
 
-
-
-
+function onKeyDownModal(evt){
+if(evt.code === "Escape")
+instance.сlose();
+}
