@@ -37,9 +37,11 @@ instance = basicLightbox.create(imageEl, {
     onСlose:() => document.removeEventListener("keydown", onKeyDownModal)
 })
 instance.show();
-}
 
 function onKeyDownModal(evt){
-if(evt.code === "Escape")
-instance.сlose();
+    if(evt.code === "Escape")
+    instance.сlose();
+    }
+    
 }
+
