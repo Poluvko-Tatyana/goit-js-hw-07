@@ -8,7 +8,7 @@ const galleryItem = galleryItems.map (({preview, original, description}) => {
     const galleryList =`
     <li>
     <a class="gallery__link" href="${original}">
-    <img class = gallery__image src="${preview}" alt="${description} data-source="${original}">
+    <img class = gallery__image src="${preview}" alt="${description}" data-source="${original}">
     </a>
     </li>`;
     return galleryList;
