@@ -25,23 +25,24 @@ function onClickImg(evt){
     }
    
    const Img = evt.target.dataset.source;
+   console.log(Img);
    openModal(Img)
 
 }
 
 function openModal(image){
-let instance = null
 const imageEl = `<img src="${image}">`;
-instance = basicLightbox.create(imageEl, {
+const instance = basicLightbox.create(imageEl, {
     onShow:() => document.addEventListener("keydown", onKeyDownModal), 
     onСlose:() => document.removeEventListener("keydown", onKeyDownModal)
 })
 instance.show();
 
 function onKeyDownModal(evt){
-    if(evt.code === "Escape")
+    if(evt.code === "Escape"){
     instance.сlose();
     }
     
+}
 }
 
